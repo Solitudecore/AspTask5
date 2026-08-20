@@ -27,7 +27,7 @@ namespace AspTask5.Controllers
         {
             var query = _context.Products.AsQueryable();
 
-            // Filtering
+            
             if (!string.IsNullOrEmpty(category))
             {
                 query = query.Where(p => p.Category == category);
@@ -43,7 +43,7 @@ namespace AspTask5.Controllers
                 query = query.Where(p => p.Price <= maxPrice.Value);
             }
 
-            // Pagination
+            
             var totalCount = await query.CountAsync();
 
             var products = await query
